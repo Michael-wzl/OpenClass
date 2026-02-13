@@ -1,0 +1,54 @@
+# OpenClass 配置文件示例
+# 环境变量的值会覆盖此处的配置
+
+# 通义听悟配置
+tingwu:
+  region: cn-beijing
+  sample_rate: 16000
+  audio_format: pcm
+  source_language: cn          # cn/en/yue/ja/ko/multilingual
+  enable_diarization: true     # 说话人分离
+  speaker_count: 0             # 0=自动检测
+  enable_translation: false    # 实时翻译
+  translation_target_languages:
+    - en
+  output_level: 2              # 2=返回中间结果
+
+# 大模型配置
+llm:
+  provider: qwen               # qwen/openai/custom
+  qwen_model: qwen-plus
+  temperature: 0.7
+  max_tokens: 4096
+
+# 音频采集配置
+audio:
+  device_index: null            # null=系统默认，设置数字选择特定声卡
+  sample_rate: 16000
+  channels: 1
+  chunk_size: 3200
+  format_bits: 16
+
+# 课堂配置
+classroom:
+  data_dir: ./classroom_data
+  output_language: cn           # 输出语言
+  summary_interval_minutes: 10  # 总结间隔
+  auto_detect_language: true
+  enable_question_detection: true
+  enable_auto_answer: true
+  enable_suggest_questions: true
+  enable_periodic_summary: true
+  enable_creative_ideas: true
+
+# 消息平台配置
+messaging:
+  enabled_platforms:
+    - console
+  # whatsapp_token: ""
+  # qq_bot_token: ""
+  # x_api_key: ""
+
+# 调试
+debug: false
+log_level: INFO

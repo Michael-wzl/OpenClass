@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openclass"
+version = "0.1.0"
+description = "OpenClass - AI-Powered Classroom Assistant"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "pyaudio>=0.2.14",
+    "websockets>=12.0",
+    "aliyun-python-sdk-core>=2.15.0",
+    "openai>=1.30.0",
+    "dashscope>=1.20.0",
+    "rich>=13.7.0",
+    "textual>=0.50.0",
+    "python-docx>=1.1.0",
+    "python-pptx>=0.6.23",
+    "PyPDF2>=3.0.0",
+    "pyyaml>=6.0",
+    "aiohttp>=3.9.0",
+    "aiofiles>=23.2.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.3.0",
+]
+
+[project.scripts]
+openclass = "openclass.cli:main"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
